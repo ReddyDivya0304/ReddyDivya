@@ -1,0 +1,243 @@
+<pre>
+<span style="font-family: Consolas">
+
+<span style="color: #000000">package P_java;</span>
+<span style="color: #000000">import java.time.LocalDateTime;</span>
+<span style="color: #000000">import java.time.format.DateTimeFormatter;</span>
+<span style="color: #000000">import java.util.Scanner;</span>
+<span style="color: #000000">public class AtmInterface{</span>
+<span style="color: #000000">private static final String Deposit_atm = null;</span>
+<span style="color: #000000">    private static final String Tranfer_name = null;</span>
+<span style="color: #000000">    String full_name,Dob,Gender;</span>
+<span style="color: #000000">    String Gender1=&quot;M&quot;;</span>
+<span style="color: #000000">    String Gender2=&quot;m&quot;;</span>
+<span style="color: #000000">    String Gender3=&quot;F&quot;;</span>
+<span style="color: #000000">    String Gender4=&quot;f&quot;;</span>
+<span style="color: #000000">    String User_name,Account_Number,Password,pin,Phone_Number;</span>
+<span style="color: #000000">    String Transaction_his=&quot;your Transaction History:\n&quot;;</span>
+<span style="color: #000000">    Scanner s=new Scanner(System.in);</span>
+<span style="color: #000000">    DateTimeFormatter dtf=DateTimeFormatter.ofPattern(&quot;dd-mm-yyyy HH:mm:ss&quot;);</span>
+<span style="color: #000000">    LocalDateTime now=LocalDateTime.now();</span>
+<span style="color: #000000">    float Balance=0f;</span>
+<span style="color: #000000">    int Transaction=0;</span>
+
+<span style="color: #000000">    public void View_profile(){</span>
+<span style="color: #000000">        System.out.println(&quot;Your profil:\n&quot;);</span>
+<span style="color: #000000">        System.out.println(&quot;full-name: &quot;+this.full_name);</span>
+<span style="color: #000000">        System.out.println(&quot;Date of Birth: &quot;+this.Dob);</span>
+<span style="color: #000000">        System.out.println(&quot;Gender: &quot;+this.Gender);</span>
+<span style="color: #000000">        System.out.println(&quot;Password: &quot;+this.User_name);</span>
+<span style="color: #000000">        System.out.println(&quot;Password: &quot;+this.Password);</span>
+<span style="color: #000000">        System.out.println(&quot;Account number: &quot;+this.Account_Number);</span>
+<span style="color: #000000">        System.out.println(&quot;4-Digit-pin: +this.pin&quot;);</span>
+<span style="color: #000000">        System.out.println(&quot;Phone number: &quot;+this.Phone_Number);</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">public void Register(){</span>
+<span style="color: #000000">    System.out.println(&quot;.....Registeration.....\n&quot;);</span>
+<span style="color: #000000">    System.out.println(&quot;\nEnter full name: &quot;);</span>
+<span style="color: #000000">    this.full_name=s.nextLine();</span>
+<span style="color: #000000">    System.out.println(&quot;Enter Date of Birth(dd/mm/yyyy): &quot;);</span>
+<span style="color: #000000">    this.Dob=s.nextLine();</span>
+<span style="color: #000000">    System.out.println(&quot;Enter Gender(M/F): &quot;);</span>
+<span style="color: #000000">    this.Gender=s.nextLine();</span>
+<span style="color: #000000">    while(!(((this.Gender).equals(this.Gender1) || (this.Gender).equals(this.Gender2) || (this.Gender).equals(this.Gender3) || (this.Gender).equals(this.Gender4)))){</span>
+<span style="color: #000000">        System.out.println(&quot;Invalid...please enter correct Gender(M/F)&quot;);</span>
+<span style="color: #000000">        this.Gender=s.nextLine();</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    if(this.Gender.equals(this.Gender1) || this.Gender.equals(this.Gender2)){</span>
+<span style="color: #000000">        this.Gender=&quot;Male&quot;;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">else{</span>
+<span style="color: #000000">    this.Gender=&quot;Female&quot;;</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000"> System.out.println(&quot;Enter Username:  &quot;);</span>
+<span style="color: #000000"> this.User_name=s.nextLine();</span>
+<span style="color: #000000">  System.out.println(&quot;Enter Password:  &quot;);</span>
+<span style="color: #000000"> this.Password=s.nextLine();</span>
+<span style="color: #000000"> System.out.println(&quot;Enter Account Number:  &quot;);</span>
+<span style="color: #000000"> this.Account_Number=s.nextLine();</span>
+<span style="color: #000000"> while((Account_Number.length())!=10){</span>
+<span style="color: #000000">    System.out.println(&quot;!!! please Enter valid 10 digit Account Number: &quot;);</span>
+<span style="color: #000000">    this.Account_Number=s.nextLine();</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> System.out.println(&quot;Enter 4-Digit-pin: &quot;);</span>
+<span style="color: #000000"> this.pin=s.nextLine();</span>
+<span style="color: #000000"> while((pin.length())!=4){</span>
+<span style="color: #000000">     System.out.println(&quot;!!! please Enter valid 4 digit pin: &quot;);</span>
+<span style="color: #000000">    this.pin=s.nextLine();</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> System.out.println(&quot;Enter Phone number: &quot;);</span>
+<span style="color: #000000"> this.Phone_Number=s.nextLine();</span>
+<span style="color: #000000"> while((Phone_Number.length())!=10){</span>
+<span style="color: #000000">     System.out.println(&quot;!!! please Enter valid 10 digit Phone number: &quot;);</span>
+<span style="color: #000000">    this.Phone_Number=s.nextLine();</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> System.out.println(&quot;\n....you are successfully Registered....\n&quot;);</span>
+<span style="color: #000000"> System.out.println(&quot;Kindly Login to your account to perform any transaction...&quot;);</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">public boolean Login(){</span>
+<span style="color: #000000">    boolean log=false;</span>
+<span style="color: #000000">    while (!log){</span>
+<span style="color: #000000">        String Acc_num,pin;</span>
+<span style="color: #000000">        System.out.println(&quot;Enter Account Number:  &quot;);</span>
+<span style="color: #000000">        Acc_num=s.nextLine();</span>
+<span style="color: #000000">        if(Acc_num.equals(Account_Number)){</span>
+<span style="color: #000000">            System.out.println(&quot;Enter 4 Digit pin: &quot;);</span>
+<span style="color: #000000">            pin=s.nextLine();</span>
+<span style="color: #000000">            while(!log){</span>
+<span style="color: #000000">                if(pin.equals(pin)){</span>
+<span style="color: #000000">                    System.out.println(&quot;Logged successfully....&quot;);</span>
+<span style="color: #000000">                    log=true;</span>
+<span style="color: #000000">                }</span>
+<span style="color: #000000">                else{</span>
+<span style="color: #000000">                    System.out.println(&quot;Enter correct pin!!&quot;);</span>
+<span style="color: #000000">                    break;</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">                }</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">            else{</span>
+<span style="color: #000000">                System.out.println(&quot;Register to login...&quot;);</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        return log;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    public void Deposit(){</span>
+<span style="color: #000000">        System.out.println(&quot;Enter the Amount to deposit into your Account: &quot;);</span>
+<span style="color: #000000">        float Deposit_amt;</span>
+<span style="color: #000000">        Deposit_amt=s.nextFloat();</span>
+<span style="color: #000000">        if(Deposit_amt&gt;500000f){</span>
+<span style="color: #000000">            System.out.println(&quot;This ATM is not capable to deposit money beyond 5,00,000/-&quot;);</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        else{              </span>
+<span style="color: #000000">             Balance=Balance+Deposit_amt;</span>
+<span style="color: #000000">            Transaction+=1;</span>
+<span style="color: #000000">System.out.println(&quot;Successfully deposited rs. &quot;+Deposit_amt+&quot; into your account at &quot;+dtf.format(now));</span>
+<span style="color: #000000">System.out.println(&quot;your current Balance after this transaction is: &quot;+Balance);</span>
+<span style="color: #000000">String History=&quot; &quot;;</span>
+<span style="color: #000000">History=&quot;\n Rs &quot;+Deposit_amt+&quot; Deposited at &quot; +dtf.format(now)+&quot;  .\n&quot;;</span>
+<span style="color: #000000">Transaction_his=Transaction_his.concat(History);</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        public void Withdraw(){</span>
+<span style="color: #000000">    System.out.println(&quot;Enter the amount you want to Withdraw: &quot;);</span>
+<span style="color: #000000">    float Withdraw_amt;</span>
+<span style="color: #000000">    Withdraw_amt=s.nextFloat();</span>
+<span style="color: #000000">    if(Withdraw_amt</span><span style="color: #0000ff">&lt;</span><span style="color: #808000">500000</span><span style="color: #000000">){</span>
+        <span style="color: #800080">if</span><span style="color: #000000">(</span><span style="color: #800080">Withdraw_amt</span><span style="color: #0000ff">&gt;</span><span style="color: #000000">Balance){</span>
+<span style="color: #000000">            System.out.println(&quot;sorry!....Insufficient Balance&quot;);</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        else{</span>
+<span style="color: #000000">            Balance=Balance-Withdraw_amt;</span>
+<span style="color: #000000">            Transaction=Transaction+1;</span>
+<span style="color: #000000">            System.out.println(&quot;Successfully Withdraw Rs. &quot;+Withdraw_amt+&quot; from your account at &quot;+dtf.format(now));</span>
+<span style="color: #000000">            System.out.println(&quot;your current Balance after transactionis: &quot;+Balance);</span>
+<span style="color: #000000">            String History=&quot; &quot;;</span>
+<span style="color: #000000">            History=&quot;\n Rs &quot;+Withdraw_amt+&quot; Withdraw at&quot; + dtf.format(now)+&quot; .\n&quot;;</span>
+<span style="color: #000000">            Transaction_his=Transaction_his.concat(History);</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">     }</span>
+<span style="color: #000000">     else{</span>
+<span style="color: #000000">        System.out.println(&quot;This Atm cannot dispence Money more than 500,000/-&quot;);</span>
+<span style="color: #000000">     }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    public void Transfer(){</span>
+<span style="color: #000000">        System.out.println(&quot;Enter the Username to transfer to: \n&quot;);</span>
+<span style="color: #000000">        String Transfer_name=s.next();</span>
+<span style="color: #000000">        System.out.println(&quot;Enter he amount to transfer to: &quot;);</span>
+<span style="color: #000000">        float Total_amt=s.nextFloat();</span>
+<span style="color: #000000">        if(Total_amt</span><span style="color: #0000ff">&lt;</span><span style="color: #808000">500000</span><span style="color: #000000">){</span>
+            <span style="color: #800080">if</span><span style="color: #000000">(</span><span style="color: #800080">Total_amt</span><span style="color: #0000ff">&gt;</span><span style="color: #000000">Balance){</span>
+<span style="color: #000000">                System.out.println(&quot;sorry! Amount cannot bee transfered due to Insufficient Balance&quot;);</span>
+<span style="color: #000000">                System.out.println(&quot;your Balance was: &quot;+Balance);</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">            else{ </span>
+<span style="color: #000000">                Balance=Balance-Total_amt;</span>
+<span style="color: #000000">            Transaction=Transaction+1;</span>
+<span style="color: #000000">            System.out.println(&quot;Successfully Transfered Rs. &quot;+Total_amt+&quot; to &quot;+Transfer_name+&quot; from your account at &quot;+dtf.format(now));</span>
+<span style="color: #000000">            System.out.println(&quot;your current Balance after transactionis: &quot;+Balance);</span>
+<span style="color: #000000">            String History=&quot; &quot;;</span>
+<span style="color: #000000">            History=&quot;\n Rs &quot;+Total_amt+&quot; was transfered to &quot;+Tranfer_name+&quot;'s account from your account at &quot;+dtf.format(now)+&quot; .\n&quot;;</span>
+<span style="color: #000000">            Transaction_his=Transaction_his.concat(History);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        else{</span>
+<span style="color: #000000">            System.out.println(&quot;cannot transfer money beyond 5,00,000/-&quot;);</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    public void Transaction_history(){</span>
+<span style="color: #000000">        if(Transaction==0){</span>
+<span style="color: #000000">            System.out.println(&quot; No Transaction&quot;);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> else{</span>
+<span style="color: #000000">    System.out.println(Transaction_his);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    public void Check_Bal(){</span>
+<span style="color: #000000">        System.out.println(&quot;\n Balance amount is: &quot;+Balance);</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">    /**</span>
+<span style="color: #000000">     * @param args</span>
+<span style="color: #000000">     */</span>
+<span style="color: #000000">    public static void main(String args[]){</span>
+<span style="color: #000000">        Scanner input=new Scanner(System.in);</span>
+<span style="color: #000000">        System.out.println(&quot;\n...Welcome to Atm...\n&quot;);</span>
+<span style="color: #000000">        System.out.println(&quot;\n1.REGISTER(new user should register first)\n 2.Exist&quot;);</span>
+<span style="color: #000000">        System.out.println(&quot; your choice&quot;);</span>
+<span style="color: #000000">        int choice;</span>
+<span style="color: #000000">        choice=input.nextInt();</span>
+<span style="color: #000000">        if(choice==1){</span>
+<span style="color: #000000">            AtmInterface atm=new AtmInterface();</span>
+<span style="color: #000000">            atm.Register();</span>
+<span style="color: #000000">            while(choice==1){</span>
+<span style="color: #000000">                System.out.println(&quot;\n select any one option: &quot;);</span>
+<span style="color: #000000">                System.out.println(&quot;1.Login(if already Registered)\n2.Exist&quot;);</span>
+<span style="color: #000000">                System.out.println(&quot; your option&quot;);</span>
+<span style="color: #000000">        int opt;</span>
+<span style="color: #000000">        opt=input.nextInt();</span>
+<span style="color: #000000">        if(opt==1){</span>
+<span style="color: #000000">            if(opt==1){</span>
+<span style="color: #000000">                if(atm.Login()){</span>
+<span style="color: #000000">                    while(true){</span>
+<span style="color: #000000">                        System.out.println(&quot;\n\n This ATM is able to prefer these operations: \n&quot;);</span>
+<span style="color: #000000">                        System.out.println(&quot;1.view profile \n2.Deposit \n3.Withdraw\n4.Transfer\n5.Transaction History\n6.check Check_Bal\n7.Exist&quot;);</span>
+<span style="color: #000000">                        System.out.println(&quot;Enter your option&quot;);</span>
+<span style="color: #000000">                        int Select;</span>
+<span style="color: #000000">                        Select =input.nextInt();</span>
+<span style="color: #000000">                        switch(Select){</span>
+<span style="color: #000000">                            case 1: atm.View_profile();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 2: atm.Deposit();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 3: atm.Withdraw();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 4: atm.Transfer();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 5: atm.Transaction_history();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 6: atm.Check_Bal();</span>
+<span style="color: #000000">                            break;</span>
+<span style="color: #000000">                            case 7: System.out.println(&quot;\n Thank you\n...visit again..&quot;);</span>
+<span style="color: #000000">                                       System.exit(0);</span>
+<span style="color: #000000">                                           break;</span>
+<span style="color: #000000">                                           default: System.out.println(&quot;Invalid option!...Ente valid option...&quot;);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000">                    }</span>
+<span style="color: #000000">                }</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">            else{</span>
+<span style="color: #000000">                System.out.println(&quot;\n Thank you ...visit again...&quot;); </span>
+<span style="color: #000000">                System.exit(0);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000">} </span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">        </span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">}</span>
+
+
+
+
+<span style="color: #000000">        </span>
+</span>
+</pre>
